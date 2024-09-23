@@ -4,49 +4,47 @@ interface ProductCardProps {
   category: string,
   price: number,
   image: string
-  addCart: VoidFunction,
   viewDetail: VoidFunction
 }
 
 const ProductCard = (props: ProductCardProps) => {
   return (
-    <div
-      className="flex flex-col rounded-2xl max-w-sm lg:max-w-xs md:max-w-xs max-h-max bg-[#ffffff] shadow-xl"
-    >
-      <figure className="flex justify-center items-start p-6">
-        <img 
-          src={props.image} 
-          width={130} height={130}
-          alt={props.title} 
-        />
-      </figure>
-      <div className="flex flex-col p-8">
-        <div className="text-xl font-bold text-[#374151] h-24 pb-4">
-          {props.title}
-        </div>
-        <div className=" text-xl text-[#374151]">
-          {props.category}
-        </div>
-        <div className=" text-xl text-[#374151]">
-          ${props.price}.00
-        </div>
-        <div className="flex justify-start pt-6">
-          <button
-            type='button' 
-            onClick={props.addCart}
-            className="bg-[#1e6eb9] text-[#ffffff]  font-bold text-base  p-3 rounded-lg hover:bg-[#175691] active:scale-95 transition-transform transform mr-3">
-             Add to Cart
-          </button>
-          <button
-            type='button' 
-            onClick={props.viewDetail}
-            className="bg-[#1e6eb9] text-[#ffffff]  font-bold text-base  p-3 rounded-lg hover:bg-[#175691] active:scale-95 transition-transform transform">
-             View Detail
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
 
-export default ProductCard
+    <div className="flex flex-col justify-center items-center rounded-xl w-full h-auto md:w-72 md:min-h-max bg-white shadow-md gap-4 p-6">
+  
+      {/* Image */}
+      <div className="flex flex-col items-center">
+        <img src={props.image} alt={props.title} className="w-32 h-36"/>
+      </div>
+
+      {/* Title */}
+      <div className="flex flex-col text-center justify-center text-lg font-bold">
+        {props.title}
+      </div>
+
+      {/* Category */}
+      <div className="flex flex-col justify-center text-lg font-semibold">
+        {props.category}
+      </div>
+
+      {/* Price */}
+      <div className="flex flex-col justify-center text-lg font-semibold">
+        $ {props.price}
+      </div>
+
+      {/* Button */}
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={props.viewDetail}
+          className="rounded-xl px-3 py-2 font-semibold text-white bg-orange-600 hover:bg-orange-700"
+        >
+          View Detail
+        </button>
+      </div>
+
+    </div>
+  );
+};
+
+export default ProductCard;
